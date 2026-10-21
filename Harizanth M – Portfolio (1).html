@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harizanth M – Computer Science & Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1f1f3; --surface:#ffffff; --ink:#222226; --muted:#5d5d66; --line:#d8d8de;
+  --accent:#e8480c; --on-accent:#fff; --dark:#222226; --on-dark:#f4f4f6;
+  --display:'Archivo','Arial Black',Helvetica,sans-serif; --body:'Instrument Sans',Helvetica,Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17171a;--surface:#202024;--ink:#f1f1f4;--muted:#a6a6b0;--line:#36363d;--accent:#ff6a2b;--dark:#0f0f11}}
+:root[data-theme="dark"]{--bg:#17171a;--surface:#202024;--ink:#f1f1f4;--muted:#a6a6b0;--line:#36363d;--accent:#ff6a2b;--dark:#0f0f11}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+nav{display:flex;gap:6px 22px;flex-wrap:wrap;padding:18px 0;font-weight:500;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+.hero{background:var(--dark);color:var(--on-dark);padding:0 0 56px}
+.hero nav a{color:#b9b9c2}
+.hero h1{font:900 clamp(52px,14vw,150px)/.88 var(--display);letter-spacing:-.03em;margin:44px 0 28px;text-transform:uppercase}
+.hero h1 span{color:var(--accent)}
+.hero p{max-width:34em;font-size:20px;color:#d6d6dc;margin:0 0 30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:4px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.main{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{color:var(--on-dark)}
+.btn:hover{filter:brightness(1.1)}
+section{padding:64px 0 0}
+h2{font:800 clamp(30px,5vw,44px)/1.05 var(--display);letter-spacing:-.02em;margin:0 0 26px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.lead{font-size:20px;max-width:34em}
+.facts{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.facts b{font-weight:600}
+.facts span{color:var(--muted);text-align:right}
+.log{list-style:none;margin:0;padding:0}
+.log li{display:grid;grid-template-columns:150px 1fr;gap:6px 24px;padding:20px 0;border-top:1px solid var(--line)}
+.log li:last-child{border-bottom:1px solid var(--line)}
+.tag{font-weight:600;font-size:14px;color:var(--accent)}
+.log h3{margin:0 0 2px;font:800 21px/1.25 var(--display)}
+.log p{margin:0;color:var(--muted)}
+.win{background:var(--accent);color:var(--on-accent);padding:2px 8px;border-radius:3px;font-weight:600;font-size:13px;margin-left:8px;vertical-align:2px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.filters button{font:500 15px var(--body);padding:8px 16px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.chips li{padding:9px 16px;background:var(--surface);border:1px solid var(--line);border-radius:4px;font-weight:500}
+.chips li[hidden]{display:none}
+.chips li small{color:var(--muted);font-weight:400;margin-left:6px}
+.learn ul{margin:0;padding:0;list-style:none}
+.learn li{padding:10px 0;border-bottom:1px solid var(--line)}
+.learn h3{font:800 18px var(--display);margin:0 0 6px}
+.pill{font-size:13px;font-weight:600;color:var(--accent);margin-left:8px}
+table{width:100%;border-collapse:collapse;background:var(--surface)}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:800 15px var(--display);background:var(--dark);color:var(--on-dark)}
+.tw{overflow-x:auto}
+.contact{background:var(--accent);color:var(--on-accent);margin-top:72px;padding:56px 0 48px}
+.contact h2{color:var(--on-accent)}
+.contact ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 30px;font-size:19px}
+.contact li small{display:block;font-size:14px;opacity:.85}
+.contact a{font-weight:600;overflow-wrap:anywhere}
+footer{padding:22px 0 30px;color:var(--muted);font-size:14px}
+@media (max-width:720px){.two{grid-template-columns:1fr}.log li{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav aria-label="Sections"><a href="#about">About</a><a href="#work">Experience</a><a href="#skills">Skills</a><a href="#learning">Learning</a><a href="#education">Education</a><a href="#contact">Contact</a></nav>
+    <h1>Harizanth <span>M</span></h1>
+    <p>Second-year Computer Science and Design student who builds things that work and look good, from UI/UX to full stack to blockchain.</p>
+    <div class="btns"><a class="btn main" href="#contact">Get in touch</a><a class="btn ghost" href="https://github.com/harizanth">See my GitHub</a></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="about">
+    <h2>About me</h2>
+    <div class="two">
+      <p class="lead">I’m a B.E. Computer Science and Design student at SNS College of Technology, Coimbatore. I manage my own learning across online and offline platforms and like to turn what I learn into projects, hackathon builds and designs.</p>
+      <ul class="facts">
+        <li><b>Studying</b><span>B.E. CSD, 2025–2029</span></li>
+        <li><b>College</b><span>SNS College of Technology</span></li>
+        <li><b>Based in</b><span>Coimbatore / Thiruvarur</span></li>
+        <li><b>Languages</b><span>English, Tamil</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Internships and hackathons</h2>
+    <ul class="log">
+      <li><span class="tag">Internship</span><div><h3>UI/UX Designing Intern, Yuva Intern</h3><p>Hands-on design work on user interfaces and experiences.</p></div></li>
+      <li><span class="tag">Internship</span><div><h3>Full Stack Development, Edu Spine</h3><p>Worked on web application development, front end to back end.</p></div></li>
+      <li><span class="tag">Hackathon</span><div><h3>Technovibe Hackathon, SNS College of Technology<span class="win">Winner</span></h3><p>Took first place in the college’s own hackathon.</p></div></li>
+      <li><span class="tag">Hackathon</span><div><h3>RIFT Hackathon, Physics Wallah, Bangalore</h3><p>Competed in person in Bangalore.</p></div></li>
+      <li><span class="tag">Hackathon</span><div><h3>Nano Hack, Saveetha, Chennai</h3><p>Built and pitched a project in a timed team event.</p></div></li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills and tools</h2>
+    <div class="filters" role="group" aria-label="Filter skills">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="code">Code</button>
+      <button aria-pressed="false" data-f="tools">Tools</button>
+      <button aria-pressed="false" data-f="interest">Interests</button>
+    </div>
+    <ul class="chips" id="chips">
+      <li data-c="code">HTML</li><li data-c="code">CSS</li><li data-c="code">C++</li><li data-c="code">Python</li><li data-c="code">Java</li>
+      <li data-c="tools">Figma</li><li data-c="tools">GitHub</li><li data-c="tools">Claude Code</li><li data-c="tools">MS Word 365</li>
+      <li data-c="tools">Microsoft Azure AI Engineering<small>in progress</small></li>
+      <li data-c="interest">UI/UX design</li><li data-c="interest">Full stack development</li><li data-c="interest">Data structures</li><li data-c="interest">Cybersecurity</li><li data-c="interest">Blockchain concepts</li><li data-c="interest">Graphic design</li><li data-c="interest">Typography</li><li data-c="interest">Branding and identity</li><li data-c="interest">Print and digital media</li>
+    </ul>
+  </section>
+
+  <section id="learning" class="learn">
+    <h2>Certifications and courses</h2>
+    <div class="two">
+      <div><h3>Certifications</h3><ul>
+        <li>Scalar (Python) basics</li><li>IBM fundamentals</li><li>Enterprise design thinking practitioner</li><li>Microsoft Office basics</li><li>Sports and other activity certificates</li></ul></div>
+      <div><h3>Courses</h3><ul>
+        <li>C for beginners</li><li>Databricks</li><li>Microsoft Azure AI Engineer Associate (AI-102)<span class="pill">In progress</span></li><li>Building a responsive website with HTML and CSS</li></ul></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Year</th><th>Qualification</th><th>School or college</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>2025–2029</td><td>B.E. Computer Science and Design</td><td>SNS College of Technology, Coimbatore</td><td>Ongoing</td></tr>
+        <tr><td>2025</td><td>HSC</td><td>Brilliant Matriculation Hr. Sec. School, Muthupet, Thiruvarur</td><td>87% (cutoff 170)</td></tr>
+        <tr><td>2023</td><td>SSLC</td><td>Brilliant Matriculation Hr. Sec. School, Muthupet, Thiruvarur</td><td>90%</td></tr>
+      </tbody></table></div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let’s talk</h2>
+    <ul>
+      <li><small>LinkedIn</small><a href="https://www.linkedin.com/in/harizanth-m">linkedin.com/in/harizanth-m</a></li>
+      <li><small>GitHub</small><a href="https://github.com/harizanth">github.com/harizanth</a></li>
+      <li><small>Email</small><a href="mailto:harishmurugesh.m@gmail.com">harishmurugesh.m@gmail.com</a><br><a href="mailto:harizanth.m.csd.2025@snsct.org">harizanth.m.csd.2025@snsct.org</a></li>
+      <li><small>Phone</small><a href="tel:+917904433496">+91 7904433496</a></li>
+      <li><small>Location</small>Muthupet, Thiruvarur district, 614704</li>
+    </ul>
+  </div>
+</section>
+<footer class="wrap">© Harizanth M</footer>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.filters button'),items=document.querySelectorAll('#chips li');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    items.forEach(function(i){i.hidden=!(b.dataset.f==='all'||i.dataset.c===b.dataset.f)});
+  })});
+})();
+</script>
+</body>
+</html>
